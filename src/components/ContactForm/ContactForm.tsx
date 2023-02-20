@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { useState } from 'react';
 
 import { addContact } from '../../redux/contactsSlice';
+import {Green } from '../../stories/Button.stories'
 
 interface IContact {
   id?: string;
@@ -72,7 +73,7 @@ export const ContactForm: React.FC = () => {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <Green label = "Add contact" backgroundColor = "green" color = 'red' size = "md"/>
     </form>
   );
 };
