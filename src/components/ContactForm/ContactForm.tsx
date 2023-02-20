@@ -1,4 +1,5 @@
 import css from './ContactForm.module.css';
+import { nanoid } from '@reduxjs/toolkit';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/hook';
 import { useState } from 'react';
@@ -6,6 +7,7 @@ import { useState } from 'react';
 import { addContact } from '../../redux/contactsSlice';
 
 interface IContact {
+  id?: string;
   name: string;
   number: string;
 }
@@ -39,7 +41,7 @@ export const ContactForm: React.FC = () => {
       return alert(`${contact.name} is already exist`);
     }
 
-    dispatch(addContact(contact));
+    dispatch(addContact({id: nanoid(), ...contact}));
 
     reset();
   };
