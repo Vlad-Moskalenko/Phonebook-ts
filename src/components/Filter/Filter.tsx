@@ -7,7 +7,7 @@ export const Filter = () => {
   const filter = useAppSelector(state => state.filter);
   const dispatch = useAppDispatch();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(setFilter(e.target.value))
   }
 

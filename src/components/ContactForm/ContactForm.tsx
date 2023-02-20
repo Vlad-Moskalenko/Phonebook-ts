@@ -20,7 +20,7 @@ export const ContactForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const contacts = useAppSelector(state => state.contacts.contacts);
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput: React.ChangeEventHandler<HTMLInputElement> = e => {
     const { target: { name, value }} = e
     setContact(prevState => ({ ...prevState, [name]: value }));
   };
@@ -32,7 +32,7 @@ export const ContactForm: React.FC = () => {
   const isUniqueContact = (name: string, contacts: IContact[]) =>
     contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
 
-  const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitForm: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault();
 
     if (isUniqueContact(contact.name, contacts)) {
